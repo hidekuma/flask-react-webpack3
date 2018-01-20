@@ -21,22 +21,23 @@ Flask + React + Redux + React Router + Webpack3
 # 이 프로젝트는
 상기 내용을 모두 충족하면서, 결과적으로 Deploy이 환경은 Python Flask에게 주되, React의 HMR이 적용되는 개발환경을 프론트에 제공할 수 있는 소스입니다.
 
+# 사용해보기
 
-# 1) 파이썬 패키지 설치
+## 1) 파이썬 패키지 설치
 pip install -r requirements.txt
 
-# 2) 노드 패키지 설치
+## 2) 노드 패키지 설치
 cd static
 npm install 또는 yarn
 
-# 3) 백엔드 서버 기동 (python app.py 백그라운드로 실행)
+## 3) 백엔드 서버 기동 (python app.py 백그라운드로 실행)
 cd static
 ./server.sh
 
-# 4) 프런트엔드 개발서버 기동 (Webpack Dev Server)
+## 4) 프런트엔드 개발서버 기동 (Webpack Dev Server)
 yarn start
 
-# 5) 디플로이 하기
+## 5) 디플로이 하기
 yarn build
 
-## xptmxm
+
