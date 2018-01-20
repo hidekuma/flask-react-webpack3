@@ -29,10 +29,12 @@ pip install -r requirements.txt
 
 ## 2) 노드 패키지 설치
 cd static
+
 npm install 또는 yarn
 
 ## 3) 백엔드 서버 기동 (python app.py 백그라운드로 실행)
 cd static
+
 ./server.sh
 
 ## 4) 프런트엔드 개발서버 기동 (Webpack Dev Server)
