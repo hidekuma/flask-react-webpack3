@@ -52,11 +52,17 @@ Flask + React + Redux + React Router + Webpack3
 > 따라서 프런트에서 /api 패스에 접속시 React-router가 아닌 Flask.app route를 타게됩니다.
 > 추가적으로 yarn build를 하는 순간, 백엔드 서버는 빌드된 static/dist의 소스들을 바라보게 되고 프런트와 같은 환경이 되게 됩니다.
 
-# 번들링
+# 번들링 (Webpack3)
 - 현재 웹팩 config을 보면 아시겠지만, SPA(Single Page Application)로 구성되어있습니다. React-router로 DOM을 새로 그리는 방법을 채택했습니다.
 > static/resource 에서 외부 부트스트랩이나 딱히 번들링할 필요없는 소스들을 모아둘 수 있습니다. (index.html에 상대경로로 연결)
 > 작업을 하시다보면 번들링 되는 속도나 번들링시 발생하는 예기치않은 오류를 무시하고 그냥 소스만 연결해야 할 상황(부트스트랩에 이미지가 빠져있다던가)이 분명히 있을거에요. 
 > 두 언어가 같은 경로에 놓여지도록 python서버와 webpack-dev-server의 public path를 맞춰논 상태입니다. 소스 연결시에는 jinja2({{url_for()}})를 이용하거나 혹은 상대경로를 이용할 수 있을텐데, 저는 그냥 상대경로로 설정하는게 편했습니다.
+
+# jinja2 template
+- Webpack-dev-server로 프런트 개발서버를 띄웠을때, jinja2의 템플릿 언어는 적용되지 않을거에요. 
+> 하지만 이 프로젝트의 경우 SPA이기 때문에 flask에서 index.html만 리턴을 해줍니다.
+> 즉, webpack-dev-server의 proxy에 '/api' 와 더해서 '/'를 추가해주면 flask를 먼저 타고 오기때문에 jinja2 template엔진이 적용되게 됩니다.
+> SPA가 아닐경우에도 해당 url을 proxy에 추가해주면 되겠죠?
 
 # 디플로이
 - 혹시 디플로이 환경이 AWS lambda이거나 엔드포인트가 존재하나요?
