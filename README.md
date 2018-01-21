@@ -37,11 +37,13 @@ Flask + React + Redux + React Router + Webpack3
 
 > ./server.sh 스크립트를 실행시키면 백엔드 파이썬 서버가 기동됩니다.
 > 해당 백엔드 서버는 나중에 디플로이할때의 환경이 되며, 프런트서버에서 api호출할 경우, 해당 서버를 바라보게 됩니다.
+> 즉, 프런트 개발서버를 기동전에 해당 app.py을 실행시켜두어야 합니다.
+> 이 상태에서 5000번에 접속해보면 아무것도 뜨지 않을텐데요 이유는 Flask가 static/dist 폴더를 기본으로 바라보고있기 때문입니다. 5)번에서 처럼 yarn build를 하고나면 Front의 View가 반영되겠죠?
 
 ## 4) 프런트엔드 개발서버 기동 (Webpack Dev Server) : localhost:8080
 - yarn start 
 
-> Webpack-dev-server를 이용한 개발서버가 기동이 됩니다.
+> Webpack-dev-server를 이용한 프런트용(HRM) 개발서버가 기동이 됩니다.
 
 ## 5) 디플로이 하기
 - yarn build
@@ -50,8 +52,7 @@ Flask + React + Redux + React Router + Webpack3
 > 따라서 프런트서버에서 개발이 완료되고 yarn build를 하면 백엔드 서버는 빌드된 static/dist의 소스들을 바라보게 되고 프런트와 같은 환경이 되게 됩니다.
 
 # 번들링
-
-       
-
-# 정적리소스 연결
+- 현재 웹팩 config을 보면 아시겠지만, SPA(Single Page Application)로 구성되어있습니다. React-router로 DOM을 새로 그리는 방법을 채택했습니다.
+> static/resource 에서 외부 부트스트랩이나 딱히 번들링할 필요없는 소스들을 모아둘 수 있습니다. (index.html에 연결)
+> 작업을 하시다보면 번들링 되는 속도나 번들링시 발생하는 예기치않은 오류를 무시하고 그냥 소스만 연결해야 할 상황이 분명히 있을거에요. python서버와 webpack-dev-server의 public path를 맞춰논 상태입니다. 연결시에는 jinja2({{url_for()}})를 이용하거나 혹은 상대경로를 이용할 수 있을텐데, 저는 그냥 상대경로로 설정하는게 편했습니다.
 
