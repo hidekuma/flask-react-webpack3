@@ -25,31 +25,29 @@ Flask + React + Redux + React Router + Webpack3
 # 사용해보기
 
 ## 1) 파이썬 패키지 설치
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 ## 2) 노드 패키지 설치
-cd static
-
-npm install 또는 yarn
+- cd static
+- npm install 또는 yarn
 
 ## 3) 백엔드 서버 기동 (python app.py 백그라운드로 실행) : loaclhost:5000
-cd static
-
-./server.sh
+- cd static
+- ./server.sh 
 
 > ./server.sh 스크립트를 실행시키면 백엔드 파이썬 서버가 기동됩니다.
 > 해당 백엔드 서버는 나중에 디플로이할때의 환경이 되며, 프런트서버에서 api호출할 경우, 해당 서버를 바라보게 됩니다.
 
 ## 4) 프런트엔드 개발서버 기동 (Webpack Dev Server) : localhost:8080
-yarn start
+- yarn start 
 
-### Webpack-dev-server를 이용한 개발서버가 기동이 됩니다.
+> Webpack-dev-server를 이용한 개발서버가 기동이 됩니다.
 
 ## 5) 디플로이 하기
-yarn build
+- yarn build
 
-### 해당 webpack.config.js를 보면, webpack-dev-server의 설정에서 라우트 패스가 /api일 경우 proxy: localhost:5000을 보게 되는 원리로 되어있습니다.
-### 따라서 프런트서버에서 개발이 완료되고 yarn build를 하면 백엔드 서버는 빌드된 static/dist의 소스들을 바라보게 되고 프런트와 같은 환경이 되게 됩니다.
+> 해당 webpack.config.js를 보면, webpack-dev-server의 설정에서 라우트 패스가 /api일 경우 proxy: localhost:5000을 보게 되는 원리로 되어있습니다.
+> 따라서 프런트서버에서 개발이 완료되고 yarn build를 하면 백엔드 서버는 빌드된 static/dist의 소스들을 바라보게 되고 프런트와 같은 환경이 되게 됩니다.
 
 # 번들링
 
