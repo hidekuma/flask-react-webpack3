@@ -64,6 +64,10 @@ Flask + React + Redux + React Router + Webpack3
 > 즉, webpack-dev-server의 proxy에 '/api' 와 더해서 '/'를 추가해주면 flask를 먼저 타고 오기때문에 jinja2 template엔진이 적용되게 됩니다.
 > SPA가 아닐경우에도 해당 url을 proxy에 추가해주면 되겠죠?
 
+# 디버깅 로그
+1) 웹팩 빌드시 entry를 변경했으나, 변경점이 번들링 되는 html에 반영이 되지않음
+> 해결볍) jinja2 템플릿 언어 테스트를 위해 webpack.config.js의 proxy에 '/'인덱스를 넣어둔것이 문제였음. 백단 서버가 기동되고 지속적으로 물고있었기에 변경점이 반영이 안됨. 따라서 '/'를 빼고 정확히 jinja2 템플릿 언어를 사용해야 하는곳에 프록시를 넣어주어함. (2018/01/30)
+
 # 디플로이
 - 혹시 디플로이 환경이 AWS lambda이거나 엔드포인트가 존재하나요?
 - webpack의 output > publicPath를 설정해주세요.
