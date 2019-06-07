@@ -115,7 +115,7 @@ module.exports = {
         },
         //publicPath: path.resolve(__dirname, "static/dist"),
         proxy: [{
-            context: ["/api","/list","/builder","/"],
+            context: ["/api", "/"],
             target: "http://localhost:5000",
 //            bypass: function (req, res, proxyOptions) {
 //                if (req.headers.accept.indexOf("html") !== -1) {
