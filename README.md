@@ -24,29 +24,37 @@ Flask + React + Redux + React Router + Webpack3
 
 # 사용해보기
 
-## 1) 파이썬 패키지 설치
-- pip install -r requirements.txt
+## 1) 파이썬3 패키지 설치
+```bash
+pip install -r requirements.txt
+```
 
 ## 2) 노드 패키지 설치
-- cd static
-- npm install 또는 yarn
+```bash
+cd static/myapp
+npm install 또는 yarn install
+```
 
 ## 3) 백엔드 서버 기동 (python app.py 백그라운드로 실행) : loaclhost:5000
-- cd static
-- ./server.sh 
+```bash
+python app.py test > /dev/null 2>&1 &
+```
 
-> ./server.sh 스크립트를 실행시키면 백엔드 파이썬 서버가 기동됩니다.
 > 해당 백엔드 서버는 나중에 디플로이할때의 환경이 되며, 프런트서버에서 api호출할 경우, 해당 서버를 바라보게 됩니다.
 > 즉, 프런트 개발서버를 기동전에 해당 app.py을 실행시켜두어야 합니다.
 > 이 상태에서 5000번에 접속해보면 아무것도 뜨지 않을텐데요 이유는 Flask가 static/dist 폴더를 기본으로 바라보고있기 때문입니다. 5)번에서 처럼 yarn build를 하고나면 Front의 View가 반영되겠죠?
 
 ## 4) 프런트엔드 개발서버 기동 (Webpack Dev Server) : localhost:8080
-- yarn start 
+```bash
+yarn start 
+```
 
 > Webpack-dev-server를 이용한 프런트용(HMR) 개발서버가 기동이 됩니다.
 
 ## 5) 디플로이 하기
-- yarn build
+```bash
+yarn build
+```
 
 > 해당 webpack.config.js를 보면, webpack-dev-server의 설정에서 라우트 패스가 /api일 경우 proxy: localhost:5000을 보게 되는 원리로 되어있습니다.
 > 따라서 프런트에서 /api 패스에 접속시 React-router가 아닌 Flask.app route를 타게됩니다.
