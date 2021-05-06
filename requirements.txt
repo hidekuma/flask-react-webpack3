@@ -4,7 +4,7 @@ cffi==1.12.2
 Click==7.0
 Flask==1.0.2
 Flask-Bcrypt==0.7.1
-Flask-Cors==3.0.7
+Flask-Cors==3.0.9
 Flask-RESTful==0.3.7
 itsdangerous==1.1.0
 Jinja2==2.10.1
