@@ -11,7 +11,7 @@
   "dependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "classnames": "^2.2.5",
-    "codemirror": "^5.36.0",
+    "codemirror": "^5.58.2",
     "copy-to-clipboard": "^3.0.8",
     "fine-uploader": "^5.15.5",
     "grapesjs": "^0.13.8",
